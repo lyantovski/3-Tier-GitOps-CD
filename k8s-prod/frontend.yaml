@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: acrliorsc.azurecr.io/frontend:791c6b684f3f9213ffbea19c378becef53717eb0
+          image: aakashdevops/frontend:e3f742fe0cc2defdf20a44ec892638916cad470b
           ports:
             - containerPort: 80
           resources:

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: acrliorsc.azurecr.io/backend:791c6b684f3f9213ffbea19c378becef53717eb0
+          image: aakashdevops/backend:e3f742fe0cc2defdf20a44ec892638916cad470b
           ports:
             - containerPort: 5000
           resources:
