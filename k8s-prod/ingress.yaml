@@ -2,15 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: user-management-ingress
-  namespace: prod
+  namespace: myapp-demo
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx
   rules:
-  - host: devopshackarena.xyz
+  - host: myapp.demo.com
     http:
       paths:
       - path: /api
@@ -21,7 +20,7 @@ spec:
         pathType: Prefix
         backend:
           service: { name: frontend-svc, port: { number: 80 } }
-  - host: www.devopshackarena.xyz
+  - host: www.myapp.demo.com
     http:
       paths:
       - path: /api
@@ -33,5 +32,5 @@ spec:
         backend:
           service: { name: frontend-svc, port: { number: 80 } }
   tls:
-  - hosts: [devopshackarena.xyz, www.devopshackarena.xyz]
-    secretName: devopshackarena-com-tls   # <-- consistent, .com
+  - hosts: [myapp.demo.com, www.myapp.demo.com]
+    secretName: myapp-demo-com-tls
